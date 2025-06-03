@@ -23,7 +23,7 @@ int main() {
 
     }
 
-    std::cout << "\nResultado Final" << std::endl;
+    std::cout << "\nResultado" << std::endl;
     std::cout << "Despues de " << aniosTotales << " anios (o " << totalMeses << " meses)," << std::endl;
     std::cout << "¡Habrias ahorrado un total de: $" << std::fixed << std::setprecision(2) << totalAhorrado << "!" << std::endl;
    
