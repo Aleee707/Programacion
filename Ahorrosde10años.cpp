@@ -1,20 +1,40 @@
-#include <iostream>
-#include <cmath>
-
-using namespace std;
+#include <iostream> 
+#include <iomanip>  
 
 int main() {
     
-    int totalAnios = 10;
-    int totalMeses = totalAnios * 12;
+    int aniosTotales = 10;
     double aporteMensual = 1000.0;
-    double interesMensual = 0.03;
+    double tasaInteresMensual = 0.03; 
+
+    int totalMeses = aniosTotales * 12;
+
     double totalAhorrado = 0.0;
 
-    totalAhorrado = aporteMensual * ((pow(1 + interesMensual, totalMeses) - 1) / interesMensual);
+    std::cout << "--- Calculadora de Ahorro Simple ---" << std::endl;
+    std::cout << "Años a ahorrar: " << aniosTotales << std::endl;
+    std::cout << "Aporte mensual: $" << std::fixed << std::setprecision(2) << aporteMensual << std::endl;
+    std::cout << "Interes mensual: " << tasaInteresMensual * 100 << "%" << std::endl;
+    std::cout << "------------------------------------" << std::endl;
 
-    
-    cout << "Despues de " << totalAnios << " anos de ahorro mensual, el total acumulado es: $" << totalAhorrado << endl;
 
-    return 0;
+    for (int mes = 1; mes <= totalMeses; ++mes) {
+       
+        totalAhorrado = totalAhorrado + aporteMensual;
+
+        
+        double interesesGanados = totalAhorrado * tasaInteresMensual;
+
+       
+        totalAhorrado = totalAhorrado + interesesGanados;
+
+    }
+
+  
+    std::cout << "\n--- Resultado Final ---" << std::endl;
+    std::cout << "Despues de " << aniosTotales << " anios (o " << totalMeses << " meses)," << std::endl;
+    std::cout << "¡Habrias ahorrado un total de: $" << std::fixed << std::setprecision(2) << totalAhorrado << "!" << std::endl;
+    std::cout << "-----------------------" << std::endl;
+
+    return 0; 
 }
