@@ -21,8 +21,9 @@ public:
 
     virtual ~Animal() {}
 };
-                                                  /// Sub clases 
-// Clase MamÌfero
+/// Sub clases 
+
+// Clase Mam√≠fero
 class Mamifero : public Animal {
 public:
     Mamifero(string n, int p)
@@ -47,7 +48,7 @@ public:
     void mostrarInformacion() const {
         cout << "\nEspecie: Ave" << endl;
         cout << "Nombre: " << nombre << endl;
-        cout << "N˙mero de patas: " << patas << endl;
+        cout << "N√∫mero de patas: " << patas << endl;
         cout << "Tiene pelo: No" << endl;
         cout << "Pone huevos: Si" << endl;
         cout << "Tiene columna vertebral: Si" << endl;
@@ -63,7 +64,7 @@ public:
     void mostrarInformacion() const {
         cout << "\nEspecie: Invertebrado" << endl;
         cout << "Nombre: " << nombre << endl;
-        cout << "N˙mero de patas: " << patas << endl;
+        cout << "N√∫mero de patas: " << patas << endl;
         cout << "Tiene pelo: No" << endl;
         cout << "Pone huevos: Si" << endl;
         cout << "Tiene columna vertebral: No" << endl;
@@ -79,18 +80,18 @@ public:
     void mostrarInformacion() const {
         cout << "\nEspecie: Reptil" << endl;
         cout << "Nombre: " << nombre << endl;
-        cout << "N˙mero de patas: " << patas << endl;
+        cout << "N√∫mero de patas: " << patas << endl;
         cout << "Tiene pelo: No" << endl;
         cout << "Pone huevos: Si" << endl;
         cout << "Tiene columna vertebral: Si" << endl;
     }
 };
 
-// ClasificaciÛn autom·tica
+
 Animal* clasificarAnimal(string nombre, int patas, bool tiene_pelo, bool pone_huevos, bool columna_vertebral) {
     if (tiene_pelo)
-    return new Mamifero(nombre, patas);
-    else if (!tiene_pelo && columna_vertebral && pone_huevos && patas == 2)
+        return new Mamifero(nombre, patas);
+    else if (!tiene_pelo && columna_vertebral && pone_huevos && patas == 2) 
         return new Ave(nombre, patas);
     else if (!columna_vertebral)
         return new Invertebrado(nombre, patas);
@@ -103,10 +104,15 @@ Animal* clasificarAnimal(string nombre, int patas, bool tiene_pelo, bool pone_hu
 int main() {
     vector<Animal*> animales;
 
-    animales.push_back(clasificarAnimal("Perro", 4, true, false, true));
-    animales.push_back(clasificarAnimal("Gallina", 2, false, true, true));
-    animales.push_back(clasificarAnimal("Pulpo", 8, false, true, false));
-    animales.push_back(clasificarAnimal("Iguana", 4, false, true, true));
+    
+    animales.push_back(clasificarAnimal("Murcielago", 2, true, false, true));    
+    animales.push_back(clasificarAnimal("Pez Globo", 0, false, true, true));     
+    animales.push_back(clasificarAnimal("Arana", 8, false, true, false));        
+    animales.push_back(clasificarAnimal("Ping√ºino", 2, false, true, true));      
+    animales.push_back(clasificarAnimal("Serpiente", 0, false, true, true));     
+    animales.push_back(clasificarAnimal("Mariposa", 6, false, true, false));   
+    animales.push_back(clasificarAnimal("Oso Polar", 4, true, false, true));     
+    
 
     for (size_t i = 0; i < animales.size(); ++i) {
         if (animales[i]) {
@@ -119,4 +125,6 @@ int main() {
 
     return 0;
 }
+
+ 
 
