@@ -1,26 +1,28 @@
-#include <iostream>
-#include <algorithm> 
+/// Nombre:Alessandra Torres Hernandez
 
-using namespace std;
+#include <iostream>  
+#include <vector>   
+#include <algorithm> 
+#include <iomanip>  
 
 int main() {
-    const int TAM = 10;
-    float numeros[TAM];
+    std::vector<double> misNumeros(10);
 
+    std::cout << "Ordenador de Numeros Decimales" << std::endl;
+    std::cout << "ingresa 10 numeros, uno por uno:" << std::endl;
+
+    for (int i = 0; i < 10; ++i) {
+        std::cout << "Ingresa el numero " << (i + 1) << ": "; 
+        std::cin >> misNumeros[i];
+    }
     
-    cout << "Ingresa 10 numeros:" << endl;
-    for (int i = 0; i < TAM; i++) {
-        cout << "Numero " << (i + 1) << ": ";
-        cin >> numeros[i];
+    std::sort(misNumeros.begin(), misNumeros.end());
+    std::cout << "\n--- Tus numeros ordenados de menor a mayor son: ---" << std::endl;
+    std::cout << std::fixed << std::setprecision(2);
+
+    for (int i = 0; i < 10; ++i) {
+        std::cout << misNumeros[i] << std::endl; 
     }
-
-    sort(numeros, numeros + TAM);
-
-    cout << "\nNumeros ordenados en forma ascendente:" << endl;
-    for (int i = 0; i < TAM; i++) {
-        cout << numeros[i] << " ";
-    }
-
-    cout << endl;
+    
     return 0;
 }
