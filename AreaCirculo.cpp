@@ -1,4 +1,4 @@
-///calcular el area y perimetro de un circulo 
+/// Nombre:Alessandra Torres Hernandez
 
 #include <iostream>
 using namespace std;
